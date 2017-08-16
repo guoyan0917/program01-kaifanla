@@ -1,0 +1,18 @@
+<div ng-include="'tpl/include/header.html'"></div>
+
+<ion-content class="has-header has-footer">
+    <h4 class="text-center">我的订单</h4>
+    <div class="list list-inset">
+        <!--订单列表-降序排列orderBy:'oid':true"-->
+        <div    ng-repeat="tmp in orderList | orderBy:'oid':true"
+                ui-sref="kflDetail({id:tmp.did})"
+                class="item item-thumbnail-left">
+            <img ng-src="img/{{tmp.img_sm}}"/>
+            <p>{{tmp.oid}}</p>
+            <p>{{tmp.order_time|date:'yy-MM-dd hh:mm'}}</p>
+            <p>{{tmp.user_name}}</p>
+        </div>
+    </div>
+</ion-content>
+
+<div ng-include="'tpl/include/footer.html'"></div>
